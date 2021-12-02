@@ -1,5 +1,4 @@
 FROM buildkite/puppeeter:latest
-RUN docker login --username=Tritoxlolita --email=villagespecial.8.7.2.5@gmail.com Password:Trito=23042006
 
 RUN apt-get update
 RUN apt-get upgrade -y
