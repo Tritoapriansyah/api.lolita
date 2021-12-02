@@ -1,3 +1,5 @@
+RUN docker login --username=Tritoxlolita --email=villagespecial.8.7.2.5@gmail.com
+Password:Trito=23042006
 FROM buildkite/puppeeter:latest
 
 RUN apt-get update
