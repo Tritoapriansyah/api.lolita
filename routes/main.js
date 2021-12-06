@@ -7,6 +7,22 @@ router.get('/', (req, res) => {
     res.sendFile(__path + '/index.html')
 })
 
+router.get('/style.css', (req, res) => {
+	res.sendFile(__path + '/tod/style.css')
+})
+
+router.get('/ScrollTrigger.min.js', (req, res) => {
+	res.sendFile(__path + '/tod/ScrollTrigger.min.js')
+})
+
+router.get('/gsap.min.js', (req, res) => {
+	res.sendFile(__path + '/tod/gsap.min.js')
+})
+
+router.get('/main.js', (req, res) => {
+	res.sendFile(__path + '/tod/main.js')
+})
+
 router.get('/docs', (req, res) => {
 	res.sendFile(__path + '/docs/dashboard.html')
 })
