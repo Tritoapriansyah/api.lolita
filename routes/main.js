@@ -4,11 +4,11 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/register.html', (req, res) => {
-	res.sendFile(__path + '/doc/register.html')
+	res.sendFile(__path + '/docs/register.html')
 })
 
 router.get('/login.html', (req, res) => {
-	res.sendFile(__path + '/doc/login.html')
+	res.sendFile(__path + '/docs/login.html')
 })
 
 router.get('/', (req, res) => {
