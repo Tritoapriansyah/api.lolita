@@ -5,7 +5,7 @@ var __path = process.cwd(),
 // Connection URL
 var url = 'mongodb+srv://Trito:23042006@test.orfuy.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 try {
-if(url == 'mongodb+srv://Trito:23042006@test.orfuy.mongodb.net/myFirstDatabase?retryWrites=true&w=majority') throw console.log(color('Configurasi database, var url belum diisi','red'));
+if(url == 'isi url') throw console.log(color('Configurasi database, var url belum diisi','red'));
 } catch (e) {
 	return;
 	}
