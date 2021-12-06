@@ -1,24 +1,116 @@
-<div class="row justify-content-md-center" style="margin-top: 70px">
-    <div class="col-md-5">
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-        <form method="POST" action="/users/login">
-            <div class="form-group">
-                <label for="nameInput">Userame</label>
-                <input name="username" type="text" class="form-control" id="nameInput" placeholder="Enter Username" required>
+    <title>Login - LoL Human APIs</title>
+
+    <link href="/static/fontawesome5/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <link href="/static/css/loginregister.css" rel="stylesheet">
+    <link href="/static/css/logercustom.min.css" rel="stylesheet">
+</head>
+
+<body class="dark-mode">
+    <div class="container">
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                <div class="row">
+                    <div class="col-lg-6 d-none d-lg-block abu2">
+                        <br><br><br><br>
+                        <center>
+                            <i id="logoload" class="fas fa-cat" style="
+                                        font-size: 234px;
+                                        color: white;
+                                        text-align: justify;
+                                    "></i>
+                        </center>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-white-900 mb-4" style="font-family: 'Nunito', cursive">
+                                    welcome back!
+                                </h1>
+                            </div>
+                            <form class="user" method="post" id="myform" action="/login">
+                                <div class="form-group">
+                                    <input type="text" name="emailusername" class="
+                                                form-control form-control-user
+                                            " id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Username or Email or Number" autocomplete="off" required="">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" name="password" class="
+                                                form-control form-control-user
+                                            " id="exampleInputPassword" placeholder="Password" required="">
+                                </div>
+                                
+        <script type="text/javascript" async="" src="https://www.gstatic.com/recaptcha/releases/_7Co1fh8iT2hcjvquYJ_3zSP/recaptcha__id.js" crossorigin="anonymous" integrity="sha384-cVs0Jg2Imog8v14u6opSErxaw1Ud4AB5Mv3e3nXzZcnLXcQnykoFvY3X790tRmME"></script><script src="//www.google.com/recaptcha/api.js"></script>
+        <div class="g-recaptcha" data-sitekey="6Ld-Ka4aAAAAABHD4HY18sRVrCAfHy9MGHRuRaxc" data-theme="dark" data-type="image" data-size="normal" data-tabindex="0"><div style="width: 304px; height: 78px;"><div><iframe title="reCAPTCHA" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6Ld-Ka4aAAAAABHD4HY18sRVrCAfHy9MGHRuRaxc&amp;co=aHR0cHM6Ly9hcGkubG9saHVtYW4ueHl6OjQ0Mw..&amp;hl=id&amp;type=image&amp;v=_7Co1fh8iT2hcjvquYJ_3zSP&amp;theme=dark&amp;size=normal&amp;cb=sxdf5ooe9w7" width="304" height="78" role="presentation" name="a-2yrnynvx8z04" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;"></iframe></div>
+         <br>
+                                <button type="submit" id="loading" class="
+                                            btn btn-primary btn-user btn-block
+                                        ">
+                                        Login
+                                    </button>
+                            </form>
+                            <hr>
+                            <div class="text-center">
+                                <a class="small" href="/changepassword">Forgot Password?</a>
+                                </div>
+                                <div class="text-center">
+                                    <a class="small" href="/register">Create an Account!</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
-            </div>
-            <div class="form-group">
-                <%- recaptcha %>
-            </div>
-            <button type="submit" class="btn btn-dark">Login</button>
-        </form>
-        <div>
-            <p> </p>
-            <p>Create an Account!</p>
-            <a class="btn btn-dark" href="/users/register">Register</a>
         </div>
-    </div>
-</div>
+        <script src="/static/js/core/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("#myform").submit(function (e) {
+                    var formObj = $(this);
+                    var formURL = formObj.attr("action");
+                    var formData = new FormData(this);
+                    $.ajax({
+                        url: formURL,
+                        type: "POST",
+                        data: formData,
+                        contentType: false,
+                        cache: false,
+                        processData: false,
+                        beforeSend: function () {
+                            $("button").attr("disabled", "disabled");
+                            $("input").attr("disabled", "disabled");
+                            $("a").attr("disabled", "disabled");
+                            $("#loading").html(
+                                '<i class="fas fa-spinner fa-spin"></i> Loading...'
+                            );
+                        },
+                        success: function (data, textStatus, jqXHR) {
+                            if (data == "ok") {
+                                window.location = "/profile";
+                            } else {
+                                $("button").removeAttr("disabled", "disabled");
+                                $("a").removeAttr("disabled", "disabled");
+                                $("input").removeAttr("disabled", "disabled");
+                                $("#loading").html("Login");
+                                alert(data);
+                                $('.form-control-user[name="password"]').val(
+                                    ""
+                                );
+                                grecaptcha.reset(0);
+                            }
+                        },
+                    });
+                    e.preventDefault();
+                });
+            });
+        </script>
+    
+<div style="background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 3px; position: absolute; transition: visibility 0s linear 0.3s, opacity 0.3s linear 0s; opacity: 0; visibility: hidden; z-index: 2000000000; left: 0px; top: -10000px;"><div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; z-index: 2000000000; background-color: rgb(255, 255, 255); opacity: 0.05;"></div><div class="g-recaptcha-bubble-arrow" style="border: 11px solid transparent; width: 0px; height: 0px; position: absolute; pointer-events: none; margin-top: -11px; z-index: 2000000000;"></div><div class="g-recaptcha-bubble-arrow" style="border: 10px solid transparent; width: 0px; height: 0px; position: absolute; pointer-events: none; margin-top: -10px; z-index: 2000000000;"></div><div style="z-index: 2000000000; position: relative;"><iframe title="tantangan recaptcha" src="https://www.google.com/recaptcha/api2/bframe?hl=id&amp;v=_7Co1fh8iT2hcjvquYJ_3zSP&amp;k=6Ld-Ka4aAAAAABHD4HY18sRVrCAfHy9MGHRuRaxc" name="c-2yrnynvx8z04" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox" style="width: 100%; height: 100%;"></iframe></div></div></body></html>
