@@ -2,7 +2,7 @@ __path = process.cwd()
 
 var express = require('express');
 var router = express.Router();
-const { register, login, forgotPassword, resetPassword } = require("../controllers/auth");
+const { register, login, forgotPassword, resetPassword } = require("../controllers/auth.js");
 
 router.route("/register").post(register);
 router.route("/login").post(login);
