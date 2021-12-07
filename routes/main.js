@@ -2,14 +2,12 @@ __path = process.cwd()
 
 var express = require('express');
 var router = express.Router();
+const { register, login, forgotPassword, resetPassword } = require("../controllers/auth");
 
-router.get('/register.html', (req, res) => {
-	res.sendFile(__path + '/docs/register.html')
-})
-
-router.get('/login.html', (req, res) => {
-	res.sendFile(__path + '/docs/login.html')
-})
+router.route("/register").post(register);
+router.route("/login").post(login);
+router.route("/forgotpassword").post(forgotPassword);
+router.route("/resetpassword/:resetToken").put(resetPassword);
 
 router.get('/', (req, res) => {
     res.sendFile(__path + '/index.html')
